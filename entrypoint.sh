@@ -11,12 +11,11 @@ touch /var/log/dovecot/dovecot.log
 chown root:users /var/log/dovecot/dovecot.log
 chmod 664 /var/log/dovecot/dovecot.log
 for USER in $(ls -1 /home); do
-u=$(stat -c '%u' /home/"$USER")
-g=$(stat -c '%g' /home/"$USER")
   echo "User '$USER':"
+  u=$(stat -c '%u' /home/"$USER")
   if ! id -u "$USER" >/dev/null 2>&1; then
     # create user with default password
-    useradd "$USER" -u '$u' -g '$g' --no-create-home --shell='/bin/true' 
+    useradd "$USER" -u "$u" -g users --no-create-home --shell='/bin/true' "$USER"
     echo -e "$DEFAULT_PASSWD\n$DEFAULT_PASSWD\n" | passwd "$USER"
     chown -R "$USER:$USER" "/home/$USER"
     chmod 700 /home/$USER/{Maildir,sieve,.getmail} || true
@@ -37,3 +36,4 @@ echo "Starting services..."
 /etc/init.d/cron start
 
 exec "$@"
+
