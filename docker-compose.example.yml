@@ -4,12 +4,12 @@ version: '2'
 
 services:
   getmail_dovecot:
-    #build: http://github.com/gw0/docker-dovecot-getmail.git
-    image: gw000/dovecot-getmail:latest
+    #build: http://github.com/zoot1612/docker-dovecot-getmail.git
+    image: zoot1612/dovecot-getmail:latest
     volumes:
-      - /srv/mail/home:/home
-      - /srv/mail/cron.d:/etc/cron.d
-      - /srv/mail/ssl:/etc/ssl/private:ro
+      - docker/containers/dovecot-getmail/home:/home
+      - /docker/containers/dovecot-getmail/etc/cron.d:/etc/cron.d
+      - /docker/containers/dovecot-getmail/etc/ssl/private:/etc/ssl/private:ro
     ports:
       - "143:143"  # imap
       - "993:993"  # imaps
