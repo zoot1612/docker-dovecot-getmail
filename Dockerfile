@@ -10,6 +10,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update -qq \
  && apt-get install --no-install-recommends -y \
     cron \
+    nano \
     getmail \
     dovecot-imapd \
     dovecot-managesieved \
@@ -52,4 +53,4 @@ EXPOSE 4190
 #VOLUME /etc/ssl/private
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["tail", "--follow", "--retry", "/var/log/dovecot/dovecot.log", "/var/log/getmail/*.log"]
+CMD ["tail", "--follow", "--retry", "/var/log/dovecot/dovecot.log", "/var/log/getmail/getmail.log"]
