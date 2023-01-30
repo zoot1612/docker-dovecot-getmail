@@ -3,7 +3,7 @@
 # Author: gw0 [http://gw.tnode.com/] <gw.2021@ena.one>
 
 FROM debian:buster-slim
-MAINTAINER gw0 [http://gw.tnode.com/] <gw.2021@ena.one>
+MAINTAINER zoot1612 [n/a] <zoot1612@gm**l.c*m>
 
 # install debian packages
 ENV DEBIAN_FRONTEND noninteractive
