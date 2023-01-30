@@ -53,4 +53,4 @@ EXPOSE 4190
 #VOLUME /etc/ssl/private
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["tail", "--follow", "--retry", "/var/log/dovecot/dovecot.log", "/var/log/getmail/getmail.log"]
+CMD ["tail", "--follow", "--retry", "/var/log/dovecot/dovecot.log", "/var/log/getmail/*.log"]
