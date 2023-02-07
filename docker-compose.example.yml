@@ -15,3 +15,6 @@ services:
       - "993:993"  # imaps
       - "4190:4190"  # managesieve
     restart: unless-stopped
+    environment:
+      - PUID=1027
+      - PGID=100
