@@ -12,7 +12,7 @@ RUN apt-get update -qq \
     cron \
     nano \
     fetchmail \
-    procmail \
+    getmail \
     dovecot-imapd \
     dovecot-managesieved \
  && apt-get clean \
